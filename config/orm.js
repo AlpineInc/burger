@@ -17,7 +17,7 @@ var orm = {
             cb(result);
         });
     },
-    findOne: function(table, where, cb){
+    findOne: function(table, where, cb) {
         var queryString = "SELECT * FROM " + table + " where " + where + ";";
         dbConnection.query(queryString, function(err, result) {
             if (err) {
@@ -27,69 +27,80 @@ var orm = {
         });
     },
     create: function(table, cols, vals, cb) {
-	    var queryString = "INSERT INTO " + table;
-	    queryString += " (";
-	    queryString += cols.toString();
-	    queryString += ") ";
-	    queryString += "VALUES (";
-	    queryString += printQuestionMarks(vals.length);
-	    queryString += ") ";
+        var queryString = "INSERT INTO " + table;
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
 
         dbConnection.query(queryString, vals.toString(), function(err, result) {
             if (err) {
                 throw err;
             };
 
-            orm.findOne(table, "id="+result.insertId, function(burger){
-	            cb(burger);
-	        });
+            orm.findOne(table, "id=" + result.insertId, function(burger) {
+                cb(burger);
+            });
         });
 
     },
     update: function(table, cols, vals, where, cb) {
-	    var queryString = "UPDATE " + table;
-	    queryString += " SET ";
-	    queryString += colsValsToSql(cols, vals);
-	    queryString += " WHERE ";
-	    queryString += where;
+        var queryString = "UPDATE " + table;
+        queryString += " SET ";
+        queryString += colsValsToSql(cols, vals);
+        queryString += " WHERE ";
+        queryString += where;
 
         dbConnection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }
-            orm.findOne(table, where, function(burger){
-	            cb(burger);
-	        });
-	    });
+            orm.findOne(table, where, function(burger) {
+                cb(burger);
+            });
+        });
+    },
+    delete: function(table, where, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += where;
 
-    }    
+        dbConnection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
+    }
 };
 
 
 function printQuestionMarks(num) {
-  var arr = [];
+    var arr = [];
 
-  for (var i = 0; i < num; i++) {
-    arr.push("?");
-  }
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
+    }
 
-  return arr.toString();
+    return arr.toString();
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
 function colsValsToSql(cols, vals) {
-  var tableUpdateVals = [];
+    var tableUpdateVals = [];
 
-  for(var i = 0; i < cols.length; i++){
-  	if(typeof vals[i] === "string"){
-  		tableUpdateVals.push(cols[i] + "='" + vals[i]+"'");	
-  	} else {
-  		tableUpdateVals.push(cols[i] + "=" + vals[i]);
-  	}
-  	
-  }
+    for (var i = 0; i < cols.length; i++) {
+        if (typeof vals[i] === "string") {
+            tableUpdateVals.push(cols[i] + "='" + vals[i] + "'");
+        } else {
+            tableUpdateVals.push(cols[i] + "=" + vals[i]);
+        }
 
-  return tableUpdateVals.toString();
+    }
+
+    return tableUpdateVals.toString();
 }
 
 module.exports = orm;

@@ -34,9 +34,12 @@
 				<h5 class="text-center" id="text_colHeader">Devoured!</h5>
 				  {{#each burgers}}
 				    {{#if devoured}}
-		                <div class="card" id="card_devoured">
+		                <div class="card" id="card_devoured" data-id="{{id}}">
 		                    <div class="card-body ">
 		                        <h6 class="card-title float-left ">{{burger_name}}</h6>
+		                    	<form action="/burger/{{id}}?_method=DELETE" method="POST">
+		      						<button type="submit" class="btn btn-primary float-right" id="btn_devourit">Digested!</button>
+		                    	</form>				            
 		                    </div>
 		                </div>
 				    {{/if}}

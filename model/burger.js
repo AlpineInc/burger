@@ -56,6 +56,23 @@ var burger = {
     		console.log(err);
     		cb(null);
     	} 
+    },
+    delete: function(burger, cb) {
+        var table =  "burger";
+        var where = "id=" + burger.id;
+        try{
+            orm.delete(table, where, function(res) {
+                if(res.affectedRows === 0){
+                    console.log("No records deleted");
+                    cb(null);
+                } else{
+                    cb(res);    
+                }
+            });
+        } catch(err){
+            console.log(err);
+            cb(null);
+        } 
     }
 };
 

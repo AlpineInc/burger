@@ -41,6 +41,15 @@ router.put("/burger/:id", function(req, res) {
     });
 });
 
+router.delete("/burger/:id", function(req, res) {
+    var burgerObj = {
+        id: req.params.id
+    };
+
+    burger.delete(burgerObj, function(burger) {
+        res.redirect("/");
+    });
+});
 
 
 //API routes
