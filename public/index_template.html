@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Burger Devoured!</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img id="img_mainlogo" class="" src="./assets/images/burger.png" alt="Generic placeholder image">
+                <h3 id="text_logo" class="text-center">Devoured!</h3>
+                <form class="form-inline justify-content-center">
+                    <input type="text" class="form-control" id="text_newBurger" placeholder="Enter the burger you would like devoured!">
+                    <button type="submit" class="btn btn-secondary" id="btn_newBurger">Submit</button>
+                </form>
+                <hr class="m-y-md">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6" id="div_awaitingDevoured">
+                <h5 class="text-center" id="text_colHeader">Devour it!</h5>
+                <div class="card" id="card_devourIt">
+                    <div class="card-body">
+                        <h6 class="card-title float-left" id="card_devourItText">Veggi Burger</h6>
+                        <a href="# " class="btn btn-primary float-right ">Devour it!</a>
+                    </div>
+                </div>
+                <div class="card" id="card_devourIt">
+                    <div class="card-body ">
+                    	<h6 class="card-title float-left " id="card_devourItText">Veggi Burger with double cheese and fries</h6>
+                    	<form action="/{{id}}?_method=PUT" method="POST">
+						   	<input type="hidden" name="burger_name" value="burger_name">
+						   	<input type="hidden" name="devoured" value="true">
+      						<button type="submit" class="btn btn-primary float-right ">Devour it!</button>
+                    	</form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="div_devoured">
+				<h5 class="text-center" id="text_colHeader">Devoured!</h5>
+                <div class="card" id="card_devoured">
+                    <div class="card-body ">
+                        <h6 class="card-title float-left ">Veggi Burger</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-bottom div-footer ">
+        <a href=" " class="float-left ml-5 text-white ">API Documentation</a>
+        <p class="float-right mr-5 text-white ">&copy; Copyright 2018 Ravish Rao</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+#img_mainlogo {
+	height: 45%;
+	width: 10%;
+	padding-top: 10px;
+	display: block;
+	margin: auto;
+}
+
+#text_logo {
+	font-family: 'Fredoka One', cursive;
+	color: #e60000;
+}
+
+#text_newBurger {
+	width: 30%;
+	margin: 10px;
+	border-color: #e60000;
+}
+
+#btn_newBurger {
+	background-color: #e60000;
+	border-color: #e60000;
+}
+
+hr {
+	background-color: #e60000;
+}
+
+#text_colHeader{
+	font-family: 'Fredoka One', cursive;
+	color: #e60000;
+}
+
+#card_devourIt {
+	width: 80%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#card_devourItText{
+	width: 60%;
+}
+
+#card_devoured {
+	width: 80%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#btn_devourit{
+	background-color: #e60000;
+	border-color: #e60000;
+	
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+    margin-bottom: 70px;
+}
+
+.div-footer {
+    width: 100%;
+    height: 50px;
+    border-style: solid;
+    border-top-width: 5px;
+    border-color: #ff6666;
+    background-color: #e60000;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Additional Screen Sizes */
+/* Width at 768px and below */
+@media screen and (max-width: 768px) {
+#text_newBurger {
+	width: 80%;
+}
+}
+
+
+/* Width at 320px and below */
+@media screen and (max-width: 320px) {
+}
+
+/* Width at 168px and below */
+@media screen and (max-width: 168px) {
+}

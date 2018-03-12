@@ -1,0 +1,8 @@
+CREATE DATABASE burger_db;
+
+CREATE TABLE burger_db.burger(
+	id INT(5) NOT NULL AUTO_INCREMENT,
+	burger_name VARCHAR(40) NOT NULL,
+	devoured BOOLEAN DEFAULT FALSE,
+	PRIMARY KEY(id)
+);
