@@ -16,7 +16,11 @@ var dbConfig = {
   database: "burger_db"
 };
 
-var dbConnection = mysql.createConnection(dbConfig);
+if(process.env.JAWSDB_URL){
+  var dbConnection = mysql.createConnection(process.env.JAWSDB_URL);
+} else{
+  var dbConnection = mysql.createConnection(dbConfig);
+}
 
 dbConnection.connect(function(err) {
   if (err) {
